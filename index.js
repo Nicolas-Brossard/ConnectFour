@@ -7,7 +7,7 @@ class Puissance4 {
     // Nombre de lignes et de colonnes
     this.rows = rows;
     this.cols = cols;
-    // cet tableau à deux dimensions contient l'état du jeu:
+    // ce tableau à deux dimensions contient l'état du jeu:
     //   0: case vide
     //   1: pion du joueur 1
     //   2: pion du joueur 2
@@ -35,7 +35,9 @@ class Puissance4 {
     // une fonction anonyme faisant appel à `this.handle_click`. Passer directement
     // `this.handle_click` comme gestionnaire, sans wrapping, rendrait le mot clef
     // `this` inutilisable dans le gestionnaire. Voir le "binding de this".
+
     this.element.addEventListener('click', (event) => this.handle_click(event));
+
     // On fait l'affichage
     this.render();
   }
@@ -142,6 +144,60 @@ class Puissance4 {
     }
 
     let column = event.target.dataset.column;
+    if (this.turn == 2) {
+      column = Math.floor(Math.random() * 7) + 1;
+    }
+
+    if (column !== undefined) {
+      //attention, les variables dans les datasets sont TOUJOURS
+      //des chaînes de caractères. Si on veut être sûr de ne pas faire de bêtise,
+      //il vaut mieux la convertir en entier avec parseInt
+      column = parseInt(column);
+      let row = this.play(parseInt(column));
+
+      if (row === null) {
+        window.alert('Column is full!');
+      } else {
+        // Vérifier s'il y a un gagnant, ou si la partie est finie
+        if (this.win(row, column, this.turn)) {
+          this.winner = this.turn;
+        } else if (this.moves >= this.rows * this.columns) {
+          this.winner = 0;
+        }
+        // Passer le tour : 3 - 2 = 1, 3 - 1 = 2
+        this.turn = 3 - this.turn;
+
+        // Mettre à jour l'affichage
+        this.render();
+
+        //Au cours de l'affichage, pensez eventuellement, à afficher un
+        //message si la partie est finie...
+        switch (this.winner) {
+          case 0:
+            this.drawModal();
+            break;
+          case 1:
+            this.win1Modal();
+            break;
+          case 2:
+            this.win2Modal();
+            break;
+        }
+      }
+    }
+    this.robot_turn();
+  }
+  robot_turn() {
+    // Vérifier si la partie est encore en cours
+    if (this.winner !== null) {
+      this.reset();
+      this.render();
+
+      return;
+    }
+
+    let column = Math.floor(Math.random() * 7) + 1;
+
     if (column !== undefined) {
       //attention, les variables dans les datasets sont TOUJOURS
       //des chaînes de caractères. Si on veut être sûr de ne pas faire de bêtise,
