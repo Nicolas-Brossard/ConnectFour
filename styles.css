@@ -1,8 +1,19 @@
+body {
+  margin: 0;
+  background-color: rgb(230, 230, 230);
+}
 h1 {
   font-family: Andale Mono, monospace;
   text-align: center;
   color: white;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin: 0;
   background-color: black;
+}
+
+#Joueur {
+  text-align: center;
 }
 
 #game table {
