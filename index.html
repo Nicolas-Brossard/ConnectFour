@@ -108,25 +108,32 @@
                 ></button>
               </div>
               <div class="modal-body">
-                <div>
-                  <input
-                    type="button"
-                    name="playHuman"
-                    class="btn btn-primary"
-                    id="playHuman"
-                    value="Jouer contre humain"
-                  />
-                </div>
-                <br />
-                <div>
-                  <input
-                    type="button"
-                    class="btn btn-primary"
-                    name="playRobot"
-                    id="playRobot"
-                    value="Joueur contre robot"
-                  />
-                </div>
+                <form action="http://127.0.0.1:5500" method="GET">
+                  <div>
+                    <label for=""></label>
+                    <button
+                      type="submit"
+                      name="choose"
+                      class="btn btn-primary"
+                      id="playHuman"
+                      value="pvp"
+                    >
+                      Joueur contre humain
+                    </button>
+                  </div>
+                  <br />
+                  <div>
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      name="choose"
+                      id="playRobot"
+                      value="pve"
+                    >
+                      Joueur contre I.A
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
