@@ -12,6 +12,10 @@ h1 {
   background-color: black;
 }
 
+#Joueur {
+  text-align: center;
+}
+
 #game table {
   border: 3px blue outset;
   background-color: blue;

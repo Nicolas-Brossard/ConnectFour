@@ -63,6 +63,11 @@ class Puissance4 {
       }
       this.element.innerHTML = '';
       this.element.appendChild(table);
+      if (this.turn == 1) {
+        document.getElementById("Joueur" ).innerHTML = 'Joueur 1';
+      } else {
+        document.getElementById("Joueur" ).innerHTML = 'Joueur 2';
+      }
     }
     
       set(row, column, player) {
