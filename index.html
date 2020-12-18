@@ -92,7 +92,7 @@
       </div>
     </div>
     <header>
-      <div class="modal robot">
+      <div class="modal robot" id="choice">
         <div class="container">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -108,7 +108,7 @@
                 ></button>
               </div>
               <div class="modal-body">
-                <form action="http://127.0.0.1:5500" method="GET">
+                <form method="GET" onsubmit="return false;">
                   <div>
                     <label for=""></label>
                     <button
@@ -139,7 +139,7 @@
           </div>
         </div>
       </div>
-      <!-- <div class="modal begin">
+      <div class="modal begin hidden" id="chooseName">
         <div class="container">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -155,7 +155,7 @@
                 ></button>
               </div>
               <div class="modal-body">
-                <form action="http://127.0.0.1:5500" method="GET">
+                <form method="GET" onsubmit="return false;">
                   <div>
                     <label for="human1">Prénom joueur 1 ?</label>
                     <input
@@ -185,13 +185,12 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
       <h1>Puissance 4</h1>
       <br /><br /><br />
     </header>
     <h2 id="Joueur"></h2>
     <div id="game">
-      Veuillez activer javascript pour jouer.
       <table>
         <tr>
           <td data-column="0"></td>

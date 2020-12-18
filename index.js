@@ -540,7 +540,20 @@ class PuissanceRobot {
 
 // On initialise le plateau et on visualise dans le DOM
 // (dans la balise d'identifiant `game`).
-// let p4 = new Puissance4('#game');
-let p4 = new PuissanceRobot('#game');
+const choiceModal = document.querySelector('#choice');
+const nameModal = document.querySelector('#chooseName');
+
+document.querySelector('#playHuman').addEventListener('click', (e) => {
+  choiceModal.classList.add('hidden');
+  nameModal.classList.remove('hidden');
+  nameModal.addEventListener('submit', (e) => {
+    nameModal.classList.add('hidden');
+    let p4 = new Puissance4('#game');
+  });
+});
+document.querySelector('#playRobot').addEventListener('click', (e) => {
+  choiceModal.classList.add('hidden');
+  let p4 = new PuissanceRobot('#game');
+});
 // const human1 = ;
 // const human2 = ;
